@@ -4,6 +4,10 @@ on:
   issues:
     types: [opened]
 
+permissions:
+  issues: write   # ✅ This line gives bot permission to close issues
+  contents: read
+
 jobs:
   close_fake_issue:
     runs-on: ubuntu-latest
@@ -26,6 +30,6 @@ jobs:
               await github.issues.createComment({
                 ...context.repo,
                 issue_number: context.payload.issue.number,
-                body: "🚫 Only **TrustBuddy admins** can submit scam reports. Please use our website form instead."
+                body: "🚫 Only **TrustBuddy admins** can submit scam reports. Please use our official website form instead."
               });
             }
