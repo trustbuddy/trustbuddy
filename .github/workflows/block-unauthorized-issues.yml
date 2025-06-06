@@ -5,7 +5,7 @@ on:
     types: [opened]
 
 permissions:
-  issues: write   # ✅ This line gives bot permission to close issues
+  issues: write
   contents: read
 
 jobs:
@@ -17,19 +17,22 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const allowedUser = "trustbuddy";
-            const issueUser = context.payload.issue.user.login;
+            const { owner, repo } = context.repo;
+            const issueNumber = context.payload.issue.number;
+            const issueCreator = context.payload.issue.user.login;
 
-            if (issueUser !== allowedUser) {
-              await github.issues.update({
-                ...context.repo,
-                issue_number: context.payload.issue.number,
+            if (issueCreator !== "trustbuddy") {
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number: issueNumber,
                 state: "closed"
               });
 
-              await github.issues.createComment({
-                ...context.repo,
-                issue_number: context.payload.issue.number,
-                body: "🚫 Only **TrustBuddy admins** can submit scam reports. Please use our official website form instead."
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                body: "🚫 Only **TrustBuddy admins** can submit scam reports. Please use the [official website form](https://yourdomain.com) instead."
               });
             }
