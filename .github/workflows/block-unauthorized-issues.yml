@@ -29,31 +29,33 @@ jobs:
                 state: "closed"
               });
 
-              const message = `🚨 **Thanks for reporting this scam to TrustBuddy!**
-
-We’ve received your submission and it’s now under review by our team. Your effort helps protect the community from fraud and online abuse. 💙
-
-### 🔍 What Happens Next?
-- 🛠️ Our moderators will **verify** the report.
-- ⛔ If confirmed, we’ll **flag the scam publicly**.
-- 📢 The scam will be listed in our **Scam Reports page** on [trustbuddy.github.io](https://trustbuddy.github.io).
-- 🛡️ TrustBuddy will continue to **track repeat offenders** and alert the community.
-
----
-
-### 🧾 Submission Details
-> 💬 *If you forgot any details (proofs, screenshots, links, etc), please reply in the comments below.*
-
-✅ We truly appreciate your contribution to a safer internet.  
-Together, let’s build **trust on the web**.
-
-**– Team TrustBuddy**  
-[🔗 Visit our site](https://trustbuddy.github.io)`;
+              const messageLines = [
+                "🚨 **Thanks for reporting this scam to TrustBuddy!**",
+                "",
+                "We’ve received your submission and it’s now under review by our team. Your effort helps protect the community from fraud and online abuse. 💙",
+                "",
+                "### 🔍 What Happens Next?",
+                "- 🛠️ Our moderators will **verify** the report.",
+                "- ⛔ If confirmed, we’ll **flag the scam publicly**.",
+                "- 📢 The scam will be listed in our **Scam Reports page** on [trustbuddy.github.io](https://trustbuddy.github.io).",
+                "- 🛡️ TrustBuddy will continue to **track repeat offenders** and alert the community.",
+                "",
+                "---",
+                "",
+                "### 🧾 Submission Details",
+                "> 💬 *If you forgot any details (proofs, screenshots, links, etc), please reply in the comments below.*",
+                "",
+                "✅ We truly appreciate your contribution to a safer internet.  ",
+                "Together, let’s build **trust on the web**.",
+                "",
+                "**– Team TrustBuddy**  ",
+                "[🔗 Visit our site](https://trustbuddy.github.io)"
+              ];
 
               await github.rest.issues.createComment({
                 owner,
                 repo,
                 issue_number: issueNumber,
-                body: message
+                body: messageLines.join("\n")
               });
             }
