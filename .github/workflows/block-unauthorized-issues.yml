@@ -33,6 +33,6 @@ jobs:
                 owner,
                 repo,
                 issue_number: issueNumber,
-                body: "🚫 Only **TrustBuddy admins** can submit scam reports. Please use the [official website form](https://yourdomain.com) instead."
+                body: "🚫 Only **TrustBuddy admins** can submit scam reports directly . Please use the [official website form] to submit the repoert it will recview and get submitted (https://yourdomain.com) instead."
               });
             }
