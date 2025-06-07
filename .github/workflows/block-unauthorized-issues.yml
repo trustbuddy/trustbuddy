@@ -33,14 +33,14 @@ jobs:
                 owner,
                 repo,
                 issue_number: issueNumber,
-                body: "🚨 **Thanks for reporting this scam to TrustBuddy!**
+                body: `🚨 **Thanks for reporting this scam to TrustBuddy!**
 
 We’ve received your submission and it’s now under review by our team. Your effort helps protect the community from fraud and online abuse. 💙
 
 ### 🔍 What Happens Next?
 - 🛠️ Our moderators will **verify** the report.
 - ⛔ If confirmed, we’ll **flag the scam publicly**.
-- 📢 The scam will be listed in our **Scam Reports page** on [trustbuddy.github.io](https://trustbuddy.github.io) (or your deployed site).
+- 📢 The scam will be listed in our **Scam Reports page** on [trustbuddy.github.io](https://trustbuddy.github.io).
 - 🛡️ TrustBuddy will continue to **track repeat offenders** and alert the community.
 
 ---
@@ -52,7 +52,6 @@ We’ve received your submission and it’s now under review by our team. Your e
 Together, let’s build **trust on the web**.
 
 **– Team TrustBuddy**  
-[🔗 Visit our site](https://trustbuddy.github.io)
-"
+[🔗 Visit our site](https://trustbuddy.github.io)`
               });
             }
