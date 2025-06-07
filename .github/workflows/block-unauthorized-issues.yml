@@ -29,11 +29,8 @@ jobs:
                 state: "closed"
               });
 
-              await github.rest.issues.createComment({
-                owner,
-                repo,
-                issue_number: issueNumber,
-                body: `🚨 **Thanks for reporting this scam to TrustBuddy!**
+              const message = `
+🚨 **Thanks for reporting this scam to TrustBuddy!**
 
 We’ve received your submission and it’s now under review by our team. Your effort helps protect the community from fraud and online abuse. 💙
 
@@ -52,6 +49,13 @@ We’ve received your submission and it’s now under review by our team. Your e
 Together, let’s build **trust on the web**.
 
 **– Team TrustBuddy**  
-[🔗 Visit our site](https://trustbuddy.github.io)`
+[🔗 Visit our site](https://trustbuddy.github.io)
+`;
+
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                body: message
               });
             }
