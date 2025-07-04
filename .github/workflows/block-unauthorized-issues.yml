@@ -49,7 +49,7 @@ jobs:
                 "Together, let’s build **trust on the web**.",
                 "",
                 "**– Team TrustBuddy**  ",
-                "[🔗 Visit our site](https://trustbuddy.github.io)"
+                "[🔗 Visit our site](https://trustbuddy.in)"
               ];
 
               await github.rest.issues.createComment({
